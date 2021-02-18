@@ -10,7 +10,7 @@ export default function SingleBlog() {
     <>
       <Container>
         <Wrapper>
-          <Heading>Blog</Heading>
+          <Heading>Single Blog</Heading>
         </Wrapper>
       </Container>
     </>

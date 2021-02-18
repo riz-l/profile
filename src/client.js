@@ -3,6 +3,6 @@ import sanityClient from "@sanity/client";
 
 // Export: sanityClient
 export default sanityClient({
-  projectId: "pqjuhbix",
+  projectId: "aof33fhu",
   dataset: "production",
 });

@@ -23,6 +23,5 @@ export const Wrapper = styled.div`
 export const Heading = styled.h1`
   color: #ffffff;
   font-size: 4rem;
-  font-weight: 500;
-  /* text-transform: uppercase; */
+  font-weight: 600;
 `;
