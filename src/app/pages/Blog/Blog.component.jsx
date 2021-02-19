@@ -19,27 +19,34 @@ import {
 
 // Page: Blog
 export default function Blog() {
-  // State: postData
+  // State: isLoading, postData
+  const [isLoading, setIsLoading] = useState(false);
   const [postData, setPostData] = useState([]);
 
   // Effect: Fetches postData from Sanity.io
   useEffect(() => {
-    sanityClient
-      .fetch(
-        `*[_type == "post"]{
-      title,
-      slug,
-      mainImage{
-        asset->{
-          _id,
-          url
-        },
-        alt
-      }
-    }`
-      )
-      .then((data) => setPostData(data))
-      .catch(console.error);
+    function getSanityData() {
+      setIsLoading(true);
+
+      sanityClient
+        .fetch(
+          `*[_type == "post"]{
+            title,
+            slug,
+            mainImage{
+              asset->{
+                _id,
+                url
+              },
+              alt
+            }
+          }`
+        )
+        .then((data) => (setPostData(data), setIsLoading(false)))
+        .catch(console.error);
+    }
+
+    getSanityData();
   }, []);
 
   return (
@@ -50,13 +57,13 @@ export default function Blog() {
           <SubHeading>Welcome to my Blog</SubHeading>
 
           <Grid>
-            {postData &&
+            {isLoading ? (
+              <p>Loading...</p>
+            ) : (
+              postData &&
               postData.map((post, index) => (
-                <Article>
-                  <Link
-                    to={"/blog/" + post.slug.current}
-                    key={post.slug.current}
-                  >
+                <Article key={post.slug.current}>
+                  <Link to={"/blog/" + post.slug.current}>
                     <Post key={index}>
                       <Image
                         src={post.mainImage.asset.url}
@@ -68,7 +75,8 @@ export default function Blog() {
                     </Post>
                   </Link>
                 </Article>
-              ))}
+              ))
+            )}
           </Grid>
         </Wrapper>
       </Container>

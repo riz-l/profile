@@ -31,7 +31,7 @@ export const Heading = styled.h1`
   color: #ffffff;
   font-size: 8rem;
   font-weight: 600;
-  margin-top: -4rem;
+  margin-top: -100px;
 `;
 
 // Element: CtaText

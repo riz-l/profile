@@ -57,8 +57,16 @@ export const Grid = styled.div`
 export const Article = styled.article`
   background: transparent;
   box-shadow: 0 11px 8px -9px rgba(0, 0, 0, 0.35);
+  filter: saturate(0.6);
   height: 40vh;
+  transition: all 100ms linear;
   width: auto;
+
+  &:hover {
+    filter: saturate(1);
+    transform: translateY(-8px);
+    transition: all 100ms linear;
+  }
 `;
 
 // Element: Post

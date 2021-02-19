@@ -1,5 +1,6 @@
 // Import: Packages
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 // Import: Elements
 import {
@@ -33,7 +34,9 @@ export default function Navigation() {
     <>
       <Container isTransparent={isTransparent}>
         <Nav>
-          <Logo>riz</Logo>
+          <Link to="/">
+            <Logo>riz</Logo>
+          </Link>
 
           <NavContainer>
             <NavItem to="/">
