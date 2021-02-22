@@ -19,11 +19,11 @@ import {
 
 // Page: Blog
 export default function Blog() {
-  // State: isLoading, postData
+  // State: isLoading, blogData
   const [isLoading, setIsLoading] = useState(false);
-  const [postData, setPostData] = useState([]);
+  const [blogData, setBlogData] = useState([]);
 
-  // Effect: Fetches postData from Sanity.io
+  // Effect: Fetches blogData from Sanity.io
   useEffect(() => {
     function getSanityData() {
       setIsLoading(true);
@@ -42,7 +42,7 @@ export default function Blog() {
             }
           }`
         )
-        .then((data) => (setPostData(data), setIsLoading(false)))
+        .then((data) => (setBlogData(data), setIsLoading(false)))
         .catch(console.error);
     }
 
@@ -60,8 +60,8 @@ export default function Blog() {
             {isLoading ? (
               <p>Loading...</p>
             ) : (
-              postData &&
-              postData.map((post, index) => (
+              blogData &&
+              blogData.map((post, index) => (
                 <Article key={post.slug.current}>
                   <Link to={"/blog/" + post.slug.current}>
                     <Post key={index}>

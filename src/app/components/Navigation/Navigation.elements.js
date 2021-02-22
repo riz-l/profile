@@ -6,11 +6,11 @@ const activeClassName = "nav-item-active"; // NavLink: activeClassName
 // Element: Container
 export const Container = styled.div`
   background-color: ${({ isTransparent }) =>
-    isTransparent ? "transparent" : "rgb(25,24,31,0.90)"};
+    isTransparent ? "transparent" : "rgba(255,255,255,1)"};
   box-shadow: ${({ isTransparent }) =>
     isTransparent ? null : "0 11px 8px -9px rgba(0,0,0,0.35)"};
   height: 200px;
-  min-height: 200px;
+  height: ${({ isTransparent }) => (isTransparent ? "200px" : "80px")};
   position: sticky;
   top: 0;
   transition: all 150ms linear;
@@ -31,18 +31,24 @@ export const Nav = styled.nav`
 
 // Element: Logo
 export const Logo = styled.span`
-  color: #ffffff;
+  color: ${({ isTransparent }) => (isTransparent ? "#ffffff" : "#0a0a0b")};
   font-family: "Pacifico", sans-serif;
-  font-size: 6rem;
+  font-size: ${({ isTransparent }) => (isTransparent ? "6rem" : "3.4rem")};
   height: auto;
-  left: 0;
+  left: ${({ isTransparent }) => (isTransparent ? "0" : "0")};
   position: absolute;
-  top: 0;
+  top: ${({ isTransparent }) => (isTransparent ? "0" : "-15px")};
+  transition: all 100ms linear;
   user-select: none;
   -ms-user-select: none;
   -moz-user-select: none;
   -khtml-user-select: none;
   -webkit-user-select: none;
+
+  &:hover {
+    color: ${({ isTransparent }) => (isTransparent ? "#ffffff" : "#0a0a0b")};
+    transition: all 100ms linear;
+  }
 `;
 
 // Element: NavContainer
@@ -57,7 +63,7 @@ export const NavItem = styled(NavLink).attrs({ activeClassName })`
   align-items: center;
   border: 1px solid rgba(29, 29, 29, 0);
   border-radius: 4px;
-  color: #e9e8ed;
+  color: ${({ isTransparent }) => (isTransparent ? "#ebebeb" : "#2a2a2e")};
   cursor: pointer;
   display: flex;
   font-size: 1.2rem;
@@ -69,12 +75,36 @@ export const NavItem = styled(NavLink).attrs({ activeClassName })`
   position: relative;
   transition: all 100ms linear;
 
+  &.${activeClassName} {
+    color: ${({ isTransparent }) => (isTransparent ? "#ffffff" : "#0a0a0b")};
+
+    &:hover {
+      &:after {
+        background: #ff7570;
+      }
+    }
+
+    &:after {
+      background: #ff5851;
+      border-radius: 80px;
+      bottom: 0;
+      content: "";
+      display: block;
+      height: 4px;
+      left: 0;
+      position: absolute;
+      transition: all 150ms ease-in-out;
+      width: 100%;
+    }
+  }
+
   &:after {
-    background: #ffffff;
+    background: #ff7570;
+    border-radius: 80px;
     bottom: 0;
     content: "";
     display: block;
-    height: 2px;
+    height: 4px;
     left: 50%;
     position: absolute;
     transition: all 150ms ease-in-out;
@@ -82,7 +112,7 @@ export const NavItem = styled(NavLink).attrs({ activeClassName })`
   }
 
   &:hover {
-    color: #ffffff;
+    color: ${({ isTransparent }) => (isTransparent ? "#ffffff" : "#0a0a0b")};
     transition: all 100ms linear;
 
     &:after {
@@ -97,8 +127,9 @@ export const NavItem = styled(NavLink).attrs({ activeClassName })`
 export const NavItemCta = styled(NavLink).attrs({ activeClassName })`
   align-items: center;
   background-color: transparent;
-  border: 2px solid #f2f2f2;
-  color: #f2f2f2;
+  border: 2px solid
+    ${({ isTransparent }) => (isTransparent ? "#ffffff" : "#2a2a2e")};
+  color: ${({ isTransparent }) => (isTransparent ? "#ffffff" : "#2a2a2e")};
   cursor: pointer;
   display: flex;
   font-size: 1.2rem;
@@ -111,9 +142,14 @@ export const NavItemCta = styled(NavLink).attrs({ activeClassName })`
   transition: all 100ms linear;
 
   &:hover {
-    background-color: #f2f2f2;
-    border: 2px solid #f2f2f2;
-    color: #19181f;
-    transition: all 100ms linear;
+    background-color: ${({ isTransparent }) =>
+      isTransparent ? "#ffffff" : "#0a0a0b"};
+    border: 2px solid
+      ${({ isTransparent }) => (isTransparent ? "#ffffff" : "#0a0a0b")};
+    border-radius: 80px;
+    box-shadow: 0 11px 8px -9px rgba(0, 0, 0, 0.35);
+    color: ${({ isTransparent }) => (isTransparent ? "#0a0a0b" : "#ffffff")};
+    transition: background-color 100ms linear, border 100ms linear,
+      color 100ms linear, box-shadow 100ms linear, border-radius 300ms linear;
   }
 `;

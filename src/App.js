@@ -77,18 +77,31 @@ export default function App() {
 const Container = styled.div`
   background-color: #19181f;
   background: linear-gradient(
+      217deg,
+      rgba(170, 75, 107, 0.8),
+      rgba(255, 0, 0, 0) 70.71%
+    ),
+    linear-gradient(127deg, rgba(107, 107, 131, 0.8), rgba(0, 255, 0, 0) 70.71%),
+    linear-gradient(336deg, rgba(59, 141, 153, 0.8), rgba(0, 0, 255, 0) 70.71%),
+    url(https://images.unsplash.com/photo-1491895200222-0fc4a4c35e18?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1934&q=80);
+  /* background: linear-gradient(
       to top right,
       rgba(25, 24, 31, 0.9),
       rgba(0, 137, 233, 0.2)
     ),
-    url(https://images.unsplash.com/photo-1557264337-e8a93017fe92?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80);
+    url(https://images.unsplash.com/photo-1523821741446-edb2b68bb7a0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80); */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  /* filter: blur(80px); */
   /* height: 100vh;
   min-height: 100vh;
   position: fixed;
   overflow-y: auto;
   width: 100%; */
 `;
+
+// https://images.unsplash.com/photo-1590028974453-72ee91a8a13b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80
+// https://images.unsplash.com/photo-1524439654840-b12734d89414?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80
+// https://images.unsplash.com/photo-1514561582573-b6e2c3cfaf76?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80

@@ -28,13 +28,13 @@ export const Heading = styled.h1`
 
 // Element: SubHeading
 export const SubHeading = styled.h2`
-  color: #adadad;
+  color: #ebebeb;
   font-size: 2rem;
   font-weight: 400;
 `;
 
 // Element: Grid
-export const Grid = styled.div`
+export const Grid = styled.section`
   align-items: center;
   display: grid;
   grid-gap: 1.6rem;
@@ -53,29 +53,35 @@ export const Grid = styled.div`
   }
 `;
 
+// Element: Post
+export const Post = styled.div`
+  border-left: 8px solid #ff5851;
+  border-radius: 8px;
+  height: 100%;
+  position: relative;
+  transition: all 100ms linear;
+  width: 100%;
+`;
+
 // Element: Article
 export const Article = styled.article`
   background: transparent;
-  box-shadow: 0 11px 8px -9px rgba(0, 0, 0, 0.35);
   filter: saturate(0.6);
   height: 40vh;
   transition: all 100ms linear;
   width: auto;
 
   &:hover {
+    box-shadow: 0 11px 8px -9px rgba(0, 0, 0, 0.35);
     filter: saturate(1);
     transform: translateY(-8px);
     transition: all 100ms linear;
-  }
-`;
 
-// Element: Post
-export const Post = styled.div`
-  border-left: 8px solid #c43fde;
-  border-radius: 8px;
-  height: 100%;
-  position: relative;
-  width: 100%;
+    & ${Post} {
+      border-left: 8px solid #ff7570;
+      transition: all 100ms linear;
+    }
+  }
 `;
 
 // Element: Image

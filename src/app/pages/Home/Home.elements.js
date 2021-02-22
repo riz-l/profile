@@ -1,5 +1,5 @@
 // Import: Packages
-import styled, { keyframes } from "styled-components/macro";
+import styled from "styled-components/macro";
 
 // Animation: headingGradient
 // const headingGradient = keyframes`
@@ -51,8 +51,11 @@ export const Cta = styled.div`
   transition: all 100ms linear;
 
   &:hover {
-    background: #ffffff;
-    transition: all 100ms linear;
+    background-color: #ffffff;
+    border-radius: 80px;
+    box-shadow: 0 11px 8px -9px rgba(0, 0, 0, 0.35);
+    transition: background-color 100ms linear, border 100ms linear,
+      box-shadow 100ms linear, border-radius 300ms linear;
 
     & ${CtaText} {
       color: #2a2a2e;
