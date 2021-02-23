@@ -5,19 +5,26 @@ import sanityClient from "../../../client";
 
 // Import: Elements
 import {
-  Article,
+  // Article,
   Container,
   Grid,
   Heading,
-  PostHeading,
-  PostLead,
+  // PostHeading,
+  // PostLead,
   SubHeading,
   Wrapper,
-  Post,
-  Image,
-  PortfolioContainer,
+  // Post,
+  // Image,
+  // PortfolioContainer,
   Row,
   RowItem,
+  // Description,
+  Project,
+  ImageContainer,
+  Image,
+  InformationContainer,
+  ProjectLead,
+  ProjectHeading,
   Description,
 } from "./Projects.elements";
 
@@ -62,57 +69,99 @@ export default function Projects() {
           <Grid>
             {projectData &&
               projectData.map((project, index) => (
-                <Article key={project.slug.current}>
-                  <Link to={"/blog/" + project.slug.current}>
-                    <Post key={index}>
+                <React.Fragment key={project.slug.current}>
+                  <Project key={index}>
+                    <ImageContainer>
                       <Image
                         src={project.mainImage.asset.url}
                         alt={project.mainImage.alt}
                       />
-                      <PostLead>
-                        <PostHeading>{project.title}</PostHeading>
-                      </PostLead>
-                    </Post>
-                  </Link>
+                    </ImageContainer>
 
-                  <PortfolioContainer>
-                    <Row>
-                      <RowItem>
-                        <strong>Finished on</strong>:{" "}
-                        {new Date(project.date).toLocaleDateString()}
-                      </RowItem>
+                    <InformationContainer>
+                      <ProjectLead>
+                        <Link to={"/blog/" + project.slug.current}>
+                          <ProjectHeading>{project.title}</ProjectHeading>
+                        </Link>
+                      </ProjectLead>
 
-                      <RowItem>
-                        <strong>Client</strong>: 
-                        {project.client}
-                      </RowItem>
+                      <Description>
+                        <p>{project.description}</p>
+                      </Description>
 
-                      <RowItem style={{ textTransform: "capitalize" }}>
-                        <strong>Type</strong>: 
-                        {project.projectType}
-                      </RowItem>
-                    </Row>
+                      <Row>
+                        <RowItem>
+                          <strong>Finished on</strong>:{" "}
+                          {new Date(project.date).toLocaleDateString()}
+                        </RowItem>
 
-                    <Description>
-                      <p>{project.description}</p>
+                        <RowItem>
+                          <strong>Client</strong>: 
+                          {project.client}
+                        </RowItem>
 
-                      <a
-                        href={project.link}
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        View the Project{" "}
-                        <span role="img" aria-label="right pointer">
-                          👉                       
-                        </span>
-                      </a>
-                    </Description>
-                  </PortfolioContainer>
-                </Article>
+                        <RowItem style={{ textTransform: "capitalize" }}>
+                          <strong>Type</strong>: 
+                          {project.projectType}
+                        </RowItem>
+                      </Row>
+                    </InformationContainer>
+                  </Project>
+                </React.Fragment>
               ))}
           </Grid>
         </Wrapper>
       </Container>
     </>
   );
+}
+
+{
+  /* <Article key={project.slug.current}>
+<Link to={"/blog/" + project.slug.current}>
+  <Post key={index}>
+    <Image
+      src={project.mainImage.asset.url}
+      alt={project.mainImage.alt}
+    />
+    <PostLead>
+      <PostHeading>{project.title}</PostHeading>
+    </PostLead>
+  </Post>
+</Link>
+
+<PortfolioContainer>
+  <Row>
+    <RowItem>
+      <strong>Finished on</strong>:{" "}
+      {new Date(project.date).toLocaleDateString()}
+    </RowItem>
+
+    <RowItem>
+      <strong>Client</strong>: 
+      {project.client}
+    </RowItem>
+
+    <RowItem style={{ textTransform: "capitalize" }}>
+      <strong>Type</strong>: 
+      {project.projectType}
+    </RowItem>
+  </Row>
+
+  <Description>
+    <p>{project.description}</p>
+
+    <a
+      href={project.link}
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      View the Project{" "}
+      <span role="img" aria-label="right pointer">
+        👉                       
+      </span>
+    </a>
+  </Description>
+</PortfolioContainer>
+</Article> */
 }
