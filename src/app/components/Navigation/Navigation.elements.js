@@ -13,7 +13,8 @@ export const Container = styled.div`
   height: ${({ isTransparent }) => (isTransparent ? "200px" : "80px")};
   position: sticky;
   top: 0;
-  transition: all 150ms linear;
+  transition: ${({ isTransparent }) =>
+    isTransparent ? "all 400ms ease-out" : "all 800ms ease-out"};
   width: 100%;
   z-index: 20;
 `;
@@ -37,8 +38,9 @@ export const Logo = styled.span`
   height: auto;
   left: ${({ isTransparent }) => (isTransparent ? "0" : "0")};
   position: absolute;
-  top: ${({ isTransparent }) => (isTransparent ? "0" : "-15px")};
-  transition: all 100ms linear;
+  top: ${({ isTransparent }) => (isTransparent ? "0" : "-14px")};
+  transition: ${({ isTransparent }) =>
+    isTransparent ? "all 400ms ease-out" : "all 800ms ease-out"};
   user-select: none;
   -ms-user-select: none;
   -moz-user-select: none;
@@ -47,7 +49,8 @@ export const Logo = styled.span`
 
   &:hover {
     color: ${({ isTransparent }) => (isTransparent ? "#ffffff" : "#0a0a0b")};
-    transition: all 100ms linear;
+    transition: ${({ isTransparent }) =>
+      isTransparent ? "all 400ms ease-out" : "all 800ms ease-out"};
   }
 `;
 
