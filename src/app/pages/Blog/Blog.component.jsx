@@ -6,7 +6,9 @@ import sanityClient from "../../../client";
 // Import: Elements
 import {
   Article,
+  Blink,
   Container,
+  DateStamp,
   Grid,
   Heading,
   Image,
@@ -32,6 +34,7 @@ export default function Blog() {
         .fetch(
           `*[_type == "post"]{
             title,
+            publishedAt,
             slug,
             mainImage{
               asset->{
@@ -53,7 +56,7 @@ export default function Blog() {
     <>
       <Container>
         <Wrapper>
-          <Heading>Blog</Heading>
+          <Heading>Blog_</Heading>
           <SubHeading>Welcome to my Blog</SubHeading>
 
           <Grid>
@@ -70,7 +73,14 @@ export default function Blog() {
                         alt={post.mainImage.alt}
                       />
                       <PostLead>
-                        <PostHeading>{post.title}</PostHeading>
+                        <PostHeading>
+                          {post.title}
+                          <Blink>_</Blink>
+                        </PostHeading>
+                        <DateStamp>
+                          Published:{" "}
+                          {new Date(post.publishedAt).toLocaleDateString()}
+                        </DateStamp>
                       </PostLead>
                     </Post>
                   </Link>

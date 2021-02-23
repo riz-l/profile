@@ -7,14 +7,17 @@ const activeClassName = "nav-item-active"; // NavLink: activeClassName
 export const Container = styled.div`
   background-color: ${({ isTransparent }) =>
     isTransparent ? "transparent" : "rgba(255,255,255,1)"};
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   box-shadow: ${({ isTransparent }) =>
     isTransparent ? null : "0 11px 8px -9px rgba(0,0,0,0.35)"};
   height: 200px;
   height: ${({ isTransparent }) => (isTransparent ? "200px" : "80px")};
   position: sticky;
   top: 0;
-  transition: ${({ isTransparent }) =>
-    isTransparent ? "all 400ms ease-out" : "all 800ms ease-out"};
+  transform: translateZ(0) scale(1, 1);
+  -webkit-transform: translateZ(0) scale(1, 1);
+  transition: all 100ms linear;
   width: 100%;
   z-index: 20;
 `;
@@ -32,6 +35,8 @@ export const Nav = styled.nav`
 
 // Element: Logo
 export const Logo = styled.span`
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   color: ${({ isTransparent }) => (isTransparent ? "#ffffff" : "#0a0a0b")};
   font-family: "Pacifico", sans-serif;
   font-size: ${({ isTransparent }) => (isTransparent ? "6rem" : "3.4rem")};
@@ -39,8 +44,9 @@ export const Logo = styled.span`
   left: ${({ isTransparent }) => (isTransparent ? "0" : "0")};
   position: absolute;
   top: ${({ isTransparent }) => (isTransparent ? "0" : "-14px")};
-  transition: ${({ isTransparent }) =>
-    isTransparent ? "all 400ms ease-out" : "all 800ms ease-out"};
+  transform: translateZ(0) scale(1, 1);
+  -webkit-transform: translateZ(0) scale(1, 1);
+  transition: all 100ms linear;
   user-select: none;
   -ms-user-select: none;
   -moz-user-select: none;
@@ -48,9 +54,12 @@ export const Logo = styled.span`
   -webkit-user-select: none;
 
   &:hover {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     color: ${({ isTransparent }) => (isTransparent ? "#ffffff" : "#0a0a0b")};
-    transition: ${({ isTransparent }) =>
-      isTransparent ? "all 400ms ease-out" : "all 800ms ease-out"};
+    transform: translateZ(0) scale(1, 1);
+    -webkit-transform: translateZ(0) scale(1, 1);
+    transition: all 100ms linear;
   }
 `;
 

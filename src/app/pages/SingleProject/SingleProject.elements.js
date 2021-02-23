@@ -17,7 +17,6 @@ export const Wrapper = styled.div`
   justify-content: flex-start;
   margin: 0 auto;
   width: 78%;
-  max-width: 78%;
 `;
 
 // Element: Heading

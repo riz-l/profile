@@ -15,3 +15,6 @@ export { default as Projects } from "./Projects/Projects.component";
 
 // Export: SingleBlog
 export { default as SingleBlog } from "./SingleBlog/SingleBlog.component";
+
+// Export: SingleProject
+export { default as SingleProject } from "./SingleProject/SingleProject.component";

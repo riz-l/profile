@@ -1,5 +1,12 @@
 // Import: Packages
-import styled from "styled-components/macro";
+import styled, { keyframes } from "styled-components/macro";
+
+// Animation: blinkOpacity
+const blinkOpacity = keyframes`
+  50% {
+    opacity: 0;
+  }
+`;
 
 // Element: Container
 export const Container = styled.main`
@@ -55,12 +62,35 @@ export const Grid = styled.section`
 
 // Element: Post
 export const Post = styled.div`
-  border-left: 8px solid #ff5851;
+  border-left: 8px solid #2ec4b6;
   border-radius: 8px;
   height: 100%;
   position: relative;
   transition: all 100ms linear;
   width: 100%;
+`;
+
+// Element: Blink
+export const Blink = styled.span`
+  animation: ${blinkOpacity} 1s linear infinite;
+  opacity: 0;
+  transition: all 100ms linear;
+  visibility: hidden;
+`;
+
+// Element: PostHeading
+export const PostHeading = styled.h3`
+  color: #ffffff;
+  bottom: 57px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-top-right-radius: 8px;
+  font-size: 2rem;
+  font-weight: 400;
+  left: 0;
+  padding: 0.6rem 1rem;
+  position: absolute;
+  text-transform: capitalize;
+  transition: all 100ms linear;
 `;
 
 // Element: Article
@@ -78,8 +108,20 @@ export const Article = styled.article`
     transition: all 100ms linear;
 
     & ${Post} {
-      border-left: 8px solid #ff7570;
+      border-left: 8px solid #2ec4b6;
       transition: all 100ms linear;
+    }
+
+    & ${PostHeading} {
+      color: #ff7570;
+      transition: all 100ms linear;
+    }
+
+    & ${Blink} {
+      color: #ff7570;
+      opacity: 1;
+      transition: all 100ms linear;
+      visibility: visible;
     }
   }
 `;
@@ -98,22 +140,19 @@ export const Image = styled.img`
 export const PostLead = styled.div`
   align-items: flex-end;
   display: flex;
+  flex-direction: column;
   height: 100%;
   justify-content: flex-end;
   padding: 0 10px 10px 0;
   position: relative;
 `;
 
-// Element: PostHeading
-export const PostHeading = styled.h3`
-  color: #ffffff;
-  background-color: rgba(0, 0, 0, 0.7);
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-  font-size: 2rem;
-  font-weight: 400;
-  left: 0;
-  padding: 1.4rem 2.4rem 1.4rem 1.4rem;
+// Element: DateStamp
+export const DateStamp = styled.span`
+  background: #ffffff;
+  color: #2a2a2e;
+  padding: 1rem;
   position: absolute;
-  text-transform: capitalize;
+  left: 0;
+  bottom: 0;
 `;

@@ -5,27 +5,21 @@ import sanityClient from "../../../client";
 
 // Import: Elements
 import {
-  // Article,
+  Blink,
   Container,
   Grid,
+  Description,
   Heading,
-  // PostHeading,
-  // PostLead,
-  SubHeading,
-  Wrapper,
-  // Post,
-  // Image,
-  // PortfolioContainer,
+  Image,
+  ImageContainer,
+  InformationContainer,
+  Project,
+  ProjectHeading,
+  ProjectLead,
   Row,
   RowItem,
-  // Description,
-  Project,
-  ImageContainer,
-  Image,
-  InformationContainer,
-  ProjectLead,
-  ProjectHeading,
-  Description,
+  SubHeading,
+  Wrapper,
 } from "./Projects.elements";
 
 // Page: Projects
@@ -63,7 +57,7 @@ export default function Projects() {
     <>
       <Container>
         <Wrapper>
-          <Heading>Projects</Heading>
+          <Heading>Projects_</Heading>
           <SubHeading>Welcome to my Projects</SubHeading>
 
           <Grid>
@@ -80,8 +74,11 @@ export default function Projects() {
 
                     <InformationContainer>
                       <ProjectLead>
-                        <Link to={"/blog/" + project.slug.current}>
-                          <ProjectHeading>{project.title}</ProjectHeading>
+                        <Link to={"/projects/" + project.slug.current}>
+                          <ProjectHeading>
+                            {project.title}
+                            <Blink>_</Blink>
+                          </ProjectHeading>
                         </Link>
                       </ProjectLead>
 
@@ -91,18 +88,16 @@ export default function Projects() {
 
                       <Row>
                         <RowItem>
-                          <strong>Finished on</strong>:{" "}
+                          <strong>Finished on:</strong>{" "}
                           {new Date(project.date).toLocaleDateString()}
                         </RowItem>
 
                         <RowItem>
-                          <strong>Client</strong>: 
-                          {project.client}
+                          <strong>Client:</strong> {project.client}
                         </RowItem>
 
                         <RowItem style={{ textTransform: "capitalize" }}>
-                          <strong>Type</strong>: 
-                          {project.projectType}
+                          <strong>Type:</strong> {project.projectType}
                         </RowItem>
                       </Row>
                     </InformationContainer>
@@ -114,54 +109,4 @@ export default function Projects() {
       </Container>
     </>
   );
-}
-
-{
-  /* <Article key={project.slug.current}>
-<Link to={"/blog/" + project.slug.current}>
-  <Post key={index}>
-    <Image
-      src={project.mainImage.asset.url}
-      alt={project.mainImage.alt}
-    />
-    <PostLead>
-      <PostHeading>{project.title}</PostHeading>
-    </PostLead>
-  </Post>
-</Link>
-
-<PortfolioContainer>
-  <Row>
-    <RowItem>
-      <strong>Finished on</strong>:{" "}
-      {new Date(project.date).toLocaleDateString()}
-    </RowItem>
-
-    <RowItem>
-      <strong>Client</strong>: 
-      {project.client}
-    </RowItem>
-
-    <RowItem style={{ textTransform: "capitalize" }}>
-      <strong>Type</strong>: 
-      {project.projectType}
-    </RowItem>
-  </Row>
-
-  <Description>
-    <p>{project.description}</p>
-
-    <a
-      href={project.link}
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      View the Project{" "}
-      <span role="img" aria-label="right pointer">
-        👉                       
-      </span>
-    </a>
-  </Description>
-</PortfolioContainer>
-</Article> */
 }

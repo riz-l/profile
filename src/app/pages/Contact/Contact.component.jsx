@@ -10,7 +10,7 @@ export default function Contact() {
     <>
       <Container>
         <Wrapper>
-          <Heading>Contact</Heading>
+          <Heading>Contact_</Heading>
         </Wrapper>
       </Container>
     </>
