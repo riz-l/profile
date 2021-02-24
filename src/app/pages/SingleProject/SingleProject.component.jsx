@@ -10,7 +10,7 @@ export default function SingleProject() {
     <>
       <Container>
         <Wrapper>
-          <Heading>Single Project_</Heading>
+          <Heading>Single Project</Heading>
         </Wrapper>
       </Container>
     </>

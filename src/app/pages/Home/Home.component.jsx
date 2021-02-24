@@ -13,7 +13,7 @@ export default function Home() {
     <>
       <Container>
         <Wrapper>
-          <Heading>Hello there. I'm Riz_</Heading>
+          <Heading>Hello there. I'm Riz.</Heading>
 
           <Cta>
             <a href={cvPdf} target="blank">

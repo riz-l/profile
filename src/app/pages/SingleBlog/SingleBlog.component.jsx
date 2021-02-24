@@ -1,6 +1,6 @@
 // Import: Packages
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import sanityClient from "../../../client";
 import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";
@@ -12,11 +12,14 @@ import {
   AuthorDate,
   AuthorImage,
   AuthorName,
+  Blink,
   Container,
   Content,
   Header,
   HeaderImage,
   Heading,
+  Prose,
+  ReturnButton,
   Wrapper,
 } from "./SingleBlog.elements";
 
@@ -74,8 +77,16 @@ export default function SingleBlog() {
       <Container>
         <Wrapper>
           <Content>
+            <ReturnButton>
+              <Link to="/blog">
+                <span>
+                  ../Return to Blog<Blink>_</Blink>
+                </span>
+              </Link>
+            </ReturnButton>
+
             <Header>
-              <Heading>{singlePost.title}_</Heading>
+              <Heading>{singlePost.title}</Heading>
               <HeaderImage src={urlFor(singlePost.mainImage).url()} alt="" />
 
               <Author>
@@ -91,7 +102,15 @@ export default function SingleBlog() {
               </Author>
             </Header>
 
-            <div
+            <Prose>
+              <BlockContent
+                blocks={singlePost.body}
+                projectId="aof33fhu"
+                dataset="production"
+              />
+            </Prose>
+
+            {/* <div
               className="prose"
               style={{
                 width: "100%",
@@ -103,7 +122,7 @@ export default function SingleBlog() {
                 projectId="aof33fhu"
                 dataset="production"
               />
-            </div>
+            </div> */}
           </Content>
         </Wrapper>
       </Container>

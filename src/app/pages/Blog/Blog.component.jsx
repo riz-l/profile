@@ -56,7 +56,7 @@ export default function Blog() {
     <>
       <Container>
         <Wrapper>
-          <Heading>Blog_</Heading>
+          <Heading>Blog</Heading>
           <SubHeading>Welcome to my Blog</SubHeading>
 
           <Grid>

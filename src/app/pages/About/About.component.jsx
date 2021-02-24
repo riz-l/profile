@@ -10,7 +10,7 @@ export default function About() {
     <>
       <Container>
         <Wrapper>
-          <Heading>About_</Heading>
+          <Heading>About</Heading>
         </Wrapper>
       </Container>
     </>

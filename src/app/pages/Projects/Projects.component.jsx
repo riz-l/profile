@@ -57,7 +57,7 @@ export default function Projects() {
     <>
       <Container>
         <Wrapper>
-          <Heading>Projects_</Heading>
+          <Heading>Projects</Heading>
           <SubHeading>Welcome to my Projects</SubHeading>
 
           <Grid>
