@@ -16,9 +16,7 @@ export const Container = styled.div`
   top: 0;
   transform: translateZ(0) scale(1, 1);
   -webkit-transform: translateZ(0) scale(1, 1);
-  /* transition: all 100ms linear; */
-  transition: ${({ isTransparent }) =>
-    isTransparent ? "all 100ms linear" : "all 200ms linear"};
+  transition: all 100ms linear;
   width: 100%;
   z-index: 20;
 `;
@@ -47,9 +45,7 @@ export const Logo = styled.span`
   top: ${({ isTransparent }) => (isTransparent ? "0" : "-14px")};
   transform: translateZ(0) scale(1, 1);
   -webkit-transform: translateZ(0) scale(1, 1);
-  /* transition: all 100ms linear; */
-  transition: ${({ isTransparent }) =>
-    isTransparent ? "all 100ms linear" : "all 200ms linear"};
+  transition: all 100ms linear;
   user-select: none;
   -ms-user-select: none;
   -moz-user-select: none;

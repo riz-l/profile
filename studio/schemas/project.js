@@ -66,6 +66,11 @@ export default {
         layout: "tags",
       },
     },
+    {
+      name: "body",
+      title: "Body",
+      type: "blockContent",
+    },
   ],
 
   preview: {

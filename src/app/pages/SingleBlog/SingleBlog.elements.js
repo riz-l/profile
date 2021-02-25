@@ -83,10 +83,16 @@ export const ReturnButton = styled.div`
   }
 
   & span {
+    align-items: center;
     color: #2a2a2e;
+    display: flex;
     font-size: 1.8rem;
     font-weight: 600;
     transition: all 100ms linear;
+
+    & svg {
+      margin-right: 4px;
+    }
   }
 `;
 

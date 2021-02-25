@@ -4,7 +4,9 @@ import { Link, useParams } from "react-router-dom";
 import sanityClient from "../../../client";
 import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";
-import "./SingleBlog.styles.css";
+
+// Import: Icons
+import { IoIosArrowBack as BackIcon } from "react-icons/io";
 
 // Import: Elements
 import {
@@ -80,6 +82,7 @@ export default function SingleBlog() {
             <ReturnButton>
               <Link to="/blog">
                 <span>
+                  <BackIcon />
                   Back<Blink>_</Blink>
                 </span>
               </Link>

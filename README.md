@@ -6,6 +6,7 @@ Frontend
 
 - `create-react-app`
 - `react-router-dom`
+- `react-icons`
 - `styled-components`
 - `@sanity/client`
 - `@sanity/image-url`
