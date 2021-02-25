@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import sanityClient from "../../../client";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 // Import: Elements
 import {
@@ -77,9 +78,21 @@ export default function Projects() {
 
           <Grid>
             {isLoading ? (
-              <>
-                <h2>Loading...</h2>
-              </>
+              <div style={{ marginTop: "2rem" }}>
+                <SkeletonTheme color="#f1f1f1" highlightColor="#ffffff">
+                  <p style={{ marginBottom: "2rem" }}>
+                    <Skeleton height={280} count={1} />
+                  </p>
+
+                  <p style={{ marginBottom: "2rem" }}>
+                    <Skeleton height={280} count={1} />
+                  </p>
+
+                  <p style={{ marginBottom: "2rem" }}>
+                    <Skeleton height={280} count={1} />
+                  </p>
+                </SkeletonTheme>
+              </div>
             ) : (
               projectData &&
               projectData.map((project, index) => (
