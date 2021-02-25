@@ -35,7 +35,7 @@ export default function Navigation({
   // Effect: If scrollPosition exceeds Navigation height
   // ... setIsTransparent === true
   useEffect(() => {
-    scrollPosition >= 22 ? setIsTransparent(false) : setIsTransparent(true);
+    scrollPosition > 20 ? setIsTransparent(false) : setIsTransparent(true);
   }, [scrollPosition]);
 
   return (

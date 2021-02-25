@@ -11,13 +11,14 @@ export const Container = styled.div`
   -webkit-backface-visibility: hidden;
   box-shadow: ${({ isTransparent }) =>
     isTransparent ? null : "0 11px 8px -9px rgba(0,0,0,0.35)"};
-  height: 200px;
   height: ${({ isTransparent }) => (isTransparent ? "200px" : "80px")};
   position: sticky;
   top: 0;
   transform: translateZ(0) scale(1, 1);
   -webkit-transform: translateZ(0) scale(1, 1);
-  transition: all 100ms linear;
+  /* transition: all 100ms linear; */
+  transition: ${({ isTransparent }) =>
+    isTransparent ? "all 100ms linear" : "all 200ms linear"};
   width: 100%;
   z-index: 20;
 `;
@@ -46,7 +47,9 @@ export const Logo = styled.span`
   top: ${({ isTransparent }) => (isTransparent ? "0" : "-14px")};
   transform: translateZ(0) scale(1, 1);
   -webkit-transform: translateZ(0) scale(1, 1);
-  transition: all 100ms linear;
+  /* transition: all 100ms linear; */
+  transition: ${({ isTransparent }) =>
+    isTransparent ? "all 100ms linear" : "all 200ms linear"};
   user-select: none;
   -ms-user-select: none;
   -moz-user-select: none;

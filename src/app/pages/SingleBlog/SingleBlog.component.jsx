@@ -80,7 +80,7 @@ export default function SingleBlog() {
             <ReturnButton>
               <Link to="/blog">
                 <span>
-                  ../Return to Blog<Blink>_</Blink>
+                  Back<Blink>_</Blink>
                 </span>
               </Link>
             </ReturnButton>

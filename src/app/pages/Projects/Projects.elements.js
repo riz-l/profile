@@ -172,6 +172,7 @@ export const ProjectHeading = styled.h3`
   color: #2a2a2e;
   cursor: pointer;
   font-size: 2.8rem;
+  font-weight: 500;
   transition: all 100ms linear;
 
   &:hover {
@@ -196,7 +197,8 @@ export const Description = styled.div`
   width: 100%;
 
   & p {
-    color: #2a2a2e;
+    color: #44444b;
     font-size: 1.2rem;
+    line-height: 1.75;
   }
 `;
