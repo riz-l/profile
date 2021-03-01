@@ -46,7 +46,7 @@ export const Cta = styled.div`
   background-color: transparent;
   border: 2px solid #ffffff;
   cursor: pointer;
-  margin-top: 2rem;
+  margin-top: 1rem;
   padding: 1.4rem 2.4rem;
   transition: all 100ms linear;
 
@@ -58,7 +58,7 @@ export const Cta = styled.div`
       box-shadow 100ms linear, border-radius 300ms linear;
 
     & ${CtaText} {
-      color: #2a2a2e;
+      color: #ff7570;
       transition: all 100ms linear;
     }
   }

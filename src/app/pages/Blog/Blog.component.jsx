@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import sanityClient from "../../../client";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 // Import: Elements
 import {
@@ -45,8 +46,17 @@ export default function Blog() {
             }
           }`
         )
-        .then((data) => (setBlogData(data), setIsLoading(false)))
-        .catch(console.error);
+        // .then((data) => setProjectData(data))
+        .then((data) => {
+          setBlogData(data);
+          setIsLoading(false);
+        })
+        // .catch(console.error);
+        .catch((error) => {
+          setIsLoading(false);
+          console.log(error);
+          throw new Error(error);
+        });
     }
 
     getSanityData();
@@ -61,7 +71,55 @@ export default function Blog() {
 
           <Grid>
             {isLoading ? (
-              <p>Loading...</p>
+              <>
+                <Article noHover style={{ marginTop: "2rem" }}>
+                  <SkeletonTheme color="#f1f1f1" highlightColor="#ffffff">
+                    <p>
+                      <Skeleton height="40vh" count={1} />
+                    </p>
+                  </SkeletonTheme>
+                </Article>
+
+                <Article noHover style={{ marginTop: "2rem" }}>
+                  <SkeletonTheme color="#f1f1f1" highlightColor="#ffffff">
+                    <p>
+                      <Skeleton height="40vh" count={1} />
+                    </p>
+                  </SkeletonTheme>
+                </Article>
+
+                <Article noHover style={{ marginTop: "2rem" }}>
+                  <SkeletonTheme color="#f1f1f1" highlightColor="#ffffff">
+                    <p>
+                      <Skeleton height="40vh" count={1} />
+                    </p>
+                  </SkeletonTheme>
+                </Article>
+
+                <Article noHover style={{ marginTop: "2rem" }}>
+                  <SkeletonTheme color="#f1f1f1" highlightColor="#ffffff">
+                    <p>
+                      <Skeleton height="40vh" count={1} />
+                    </p>
+                  </SkeletonTheme>
+                </Article>
+
+                <Article noHover style={{ marginTop: "2rem" }}>
+                  <SkeletonTheme color="#f1f1f1" highlightColor="#ffffff">
+                    <p>
+                      <Skeleton height="40vh" count={1} />
+                    </p>
+                  </SkeletonTheme>
+                </Article>
+
+                <Article noHover style={{ marginTop: "2rem" }}>
+                  <SkeletonTheme color="#f1f1f1" highlightColor="#ffffff">
+                    <p>
+                      <Skeleton height="40vh" count={1} />
+                    </p>
+                  </SkeletonTheme>
+                </Article>
+              </>
             ) : (
               blogData &&
               blogData.map((post, index) => (
@@ -72,6 +130,7 @@ export default function Blog() {
                         src={post.mainImage.asset.url}
                         alt={post.mainImage.alt}
                       />
+
                       <PostLead>
                         <PostHeading>
                           {post.title}

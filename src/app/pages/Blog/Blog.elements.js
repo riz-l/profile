@@ -80,10 +80,10 @@ export const Blink = styled.span`
 
 // Element: PostHeading
 export const PostHeading = styled.h3`
-  color: #ffffff;
-  bottom: 57px;
   background-color: rgba(0, 0, 0, 0.7);
+  bottom: 57px;
   border-top-right-radius: 8px;
+  color: #ffffff;
   font-size: 2rem;
   font-weight: 400;
   left: 0;
@@ -97,14 +97,15 @@ export const PostHeading = styled.h3`
 export const Article = styled.article`
   background: transparent;
   filter: saturate(0.6);
-  height: 40vh;
+  height: ${({ noHover }) => (noHover ? "auto" : "40vh")};
   transition: all 100ms linear;
   width: auto;
 
   &:hover {
-    box-shadow: 0 11px 8px -9px rgba(0, 0, 0, 0.35);
+    box-shadow: ${({ noHover }) =>
+      noHover ? null : "0 11px 8px -9px rgba(0, 0, 0, 0.35)"};
     filter: saturate(1);
-    transform: translateY(-8px);
+    transform: ${({ noHover }) => (noHover ? null : "translateY(-8px)")};
     transition: all 100ms linear;
 
     & ${Post} {
@@ -128,8 +129,8 @@ export const Article = styled.article`
 
 // Element: Image
 export const Image = styled.img`
-  border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
   height: 100%;
   position: absolute;
   object-fit: cover;

@@ -159,7 +159,7 @@ export const NavItemCta = styled(NavLink).attrs({ activeClassName })`
       ${({ isTransparent }) => (isTransparent ? "#ffffff" : "#0a0a0b")};
     border-radius: 80px;
     box-shadow: 0 11px 8px -9px rgba(0, 0, 0, 0.35);
-    color: ${({ isTransparent }) => (isTransparent ? "#0a0a0b" : "#ffffff")};
+    color: ${({ isTransparent }) => (isTransparent ? "#ff7570" : "#ffffff")};
     transition: background-color 100ms linear, border 100ms linear,
       color 100ms linear, box-shadow 100ms linear, border-radius 300ms linear;
   }

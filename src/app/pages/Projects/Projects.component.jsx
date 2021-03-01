@@ -33,6 +33,7 @@ export default function Projects() {
   useEffect(() => {
     async function getSanityData() {
       setIsLoading(true);
+
       sanityClient
         .fetch(
           `*[_type == "project"]{
