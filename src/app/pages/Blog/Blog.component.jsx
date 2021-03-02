@@ -43,7 +43,8 @@ export default function Blog() {
                 url
               },
               alt
-            }
+            },
+            tags
           }`
         )
         // .then((data) => setProjectData(data))
@@ -130,14 +131,14 @@ export default function Blog() {
                         src={post.mainImage.asset.url}
                         alt={post.mainImage.alt}
                       />
-
                       <PostLead>
                         <PostHeading>
                           {post.title}
                           <Blink>_</Blink>
                         </PostHeading>
+
                         <DateStamp>
-                          Published:{" "}
+                          <span>Published: </span>
                           {new Date(post.publishedAt).toLocaleDateString()}
                         </DateStamp>
                       </PostLead>

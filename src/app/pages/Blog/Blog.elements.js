@@ -80,17 +80,19 @@ export const Blink = styled.span`
 
 // Element: PostHeading
 export const PostHeading = styled.h3`
-  background-color: rgba(0, 0, 0, 0.7);
-  bottom: 57px;
-  border-top-right-radius: 8px;
-  color: #ffffff;
+  color: #2a2a2e;
+  background-color: #ffffff;
+  border-bottom-right-radius: 8px;
+  bottom: 0;
   font-size: 2rem;
   font-weight: 400;
+  height: auto;
   left: 0;
-  padding: 0.6rem 1rem;
+  padding: 1rem 2rem;
   position: absolute;
   text-transform: capitalize;
   transition: all 100ms linear;
+  width: 100%;
 `;
 
 // Element: Article
@@ -129,8 +131,8 @@ export const Article = styled.article`
 
 // Element: Image
 export const Image = styled.img`
-  border-bottom-right-radius: 8px;
   border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
   height: 100%;
   position: absolute;
   object-fit: cover;
@@ -139,21 +141,27 @@ export const Image = styled.img`
 
 // Element: PostLead
 export const PostLead = styled.div`
-  align-items: flex-end;
+  align-items: center;
   display: flex;
-  flex-direction: column;
   height: 100%;
-  justify-content: flex-end;
+  justify-content: center;
   padding: 0 10px 10px 0;
   position: relative;
+  width: 100%;
 `;
 
 // Element: DateStamp
 export const DateStamp = styled.span`
-  background: #ffffff;
-  color: #2a2a2e;
+  background-color: #2a2a2e;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  color: #ffffff;
   padding: 1rem;
   position: absolute;
-  left: 0;
-  bottom: 0;
+  right: 0;
+  top: 0;
+
+  & span {
+    font-weight: 600;
+  }
 `;
