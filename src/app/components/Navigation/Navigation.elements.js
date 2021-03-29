@@ -1,5 +1,5 @@
 // Import: Packages
-import styled from "styled-components/macro";
+import styled, { css } from "styled-components/macro";
 import { NavLink } from "react-router-dom";
 const activeClassName = "nav-item-active"; // NavLink: activeClassName
 
@@ -11,14 +11,41 @@ export const Container = styled.div`
   -webkit-backface-visibility: hidden;
   box-shadow: ${({ isTransparent }) =>
     isTransparent ? null : "0 11px 8px -9px rgba(0,0,0,0.35)"};
-  height: ${({ isTransparent }) => (isTransparent ? "200px" : "80px")};
+  /* height: ${({ isTransparent }) => (isTransparent ? "200px" : "80px")}; */
+  height: ${({ isTransparent }) => (isTransparent ? "200px" : "200px")};
+  /* opacity: ${({ scrollDirection }) =>
+    scrollDirection === "up" ? "1" : "0"}; */
+  /* opacity: ${({ isTransparent, scrollDirection, scrollPosition }) =>
+    isTransparent && scrollPosition <= 0
+      ? "1"
+      : isTransparent &&
+        scrollPosition > 60 &&
+        scrollPosition < 400 &&
+        scrollDirection === "down"
+      ? "0"
+      : scrollDirection === "up" && scrollPosition > 600
+      ? "1"
+      : "0"}; */
   position: sticky;
   top: 0;
   transform: translateZ(0) scale(1, 1);
   -webkit-transform: translateZ(0) scale(1, 1);
-  transition: all 100ms linear;
+  transition: all 300ms linear;
   width: 100%;
   z-index: 20;
+
+  ${({ isTransparent, scrollDirection, scrollPosition }) =>
+    scrollDirection === "up"
+      ? css`
+          visibility: visible;
+          opacity: 1;
+          background-color: white;
+        `
+      : css`
+          visibility: hidden;
+          opacity: 0;
+          background-color: transparent;
+        `};
 `;
 
 // Element: Nav
@@ -38,11 +65,14 @@ export const Logo = styled.span`
   -webkit-backface-visibility: hidden;
   color: ${({ isTransparent }) => (isTransparent ? "#ffffff" : "#0a0a0b")};
   font-family: "Pacifico", sans-serif;
-  font-size: ${({ isTransparent }) => (isTransparent ? "6rem" : "3.4rem")};
+  font-size: ${({ isTransparent }) => (isTransparent ? "6rem" : "6rem")};
+  /* font-size: ${({ isTransparent }) =>
+    isTransparent ? "6rem" : "3.4rem"}; */
   height: auto;
   left: ${({ isTransparent }) => (isTransparent ? "0" : "0")};
   position: absolute;
-  top: ${({ isTransparent }) => (isTransparent ? "0" : "-14px")};
+  top: ${({ isTransparent }) => (isTransparent ? "0" : "0")};
+  /* top: ${({ isTransparent }) => (isTransparent ? "0" : "-14px")}; */
   transform: translateZ(0) scale(1, 1);
   -webkit-transform: translateZ(0) scale(1, 1);
   transition: all 100ms linear;

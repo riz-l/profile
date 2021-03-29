@@ -1,6 +1,7 @@
 // Import: Packages
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { useScrollDirection } from "../../../utils/hooks/useScrollDirection";
 
 // Import: Elements
 import {
@@ -22,6 +23,8 @@ export default function Navigation({
   isNavigationOpen,
   setIsNavigationOpen,
 }) {
+  const scrollDirection = useScrollDirection();
+
   // State: scrollPosition, isTransparent
   const [scrollPosition, setScrollPosition] = useState(0);
   const [isTransparent, setIsTransparent] = useState(true);
@@ -35,12 +38,16 @@ export default function Navigation({
   // Effect: If scrollPosition exceeds Navigation height
   // ... setIsTransparent === true
   useEffect(() => {
-    scrollPosition > 20 ? setIsTransparent(false) : setIsTransparent(true);
+    scrollPosition > 600 ? setIsTransparent(false) : setIsTransparent(true);
   }, [scrollPosition]);
 
   return (
     <>
-      <Container isTransparent={isTransparent}>
+      <Container
+        isTransparent={isTransparent}
+        scrollPosition={scrollPosition}
+        scrollDirection={scrollDirection}
+      >
         <Nav>
           <NavLink to="/" exact>
             <Logo isTransparent={isTransparent}>riz</Logo>
