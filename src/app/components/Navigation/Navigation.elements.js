@@ -3,14 +3,16 @@ import styled, { css } from "styled-components/macro";
 import { NavLink } from "react-router-dom";
 const activeClassName = "nav-item-active"; // NavLink: activeClassName
 
+export const Test = styled.div``;
+
 // Element: Container
 export const Container = styled.div`
-  background-color: ${({ isTransparent }) =>
-    isTransparent ? "transparent" : "rgba(255,255,255,1)"};
+  /* background-color: ${({ isTransparent }) =>
+    isTransparent ? "transparent" : "rgba(255,255,255,1)"}; */
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  box-shadow: ${({ isTransparent }) =>
-    isTransparent ? null : "0 11px 8px -9px rgba(0,0,0,0.35)"};
+  /* box-shadow: ${({ isTransparent }) =>
+    isTransparent ? null : "0 11px 8px -9px rgba(0,0,0,0.35)"}; */
   /* height: ${({ isTransparent }) => (isTransparent ? "200px" : "80px")}; */
   height: ${({ isTransparent }) => (isTransparent ? "200px" : "200px")};
   /* opacity: ${({ scrollDirection }) =>
@@ -35,16 +37,22 @@ export const Container = styled.div`
   z-index: 20;
 
   ${({ isTransparent, scrollDirection, scrollPosition }) =>
-    scrollDirection === "up"
+    scrollPosition === 0
       ? css`
-          visibility: visible;
-          opacity: 1;
+          background-color: transparent;
+        `
+      : scrollDirection === "up" && scrollPosition !== 0
+      ? css`
           background-color: white;
         `
-      : css`
-          visibility: hidden;
-          opacity: 0;
+      : isTransparent && scrollDirection === "down" && scrollPosition > 80
+      ? css`
           background-color: transparent;
+          opacity: 0;
+        `
+      : css`
+          background-color: transparent;
+          opacity: 0;
         `};
 `;
 
