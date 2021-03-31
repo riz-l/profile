@@ -7,27 +7,9 @@ export const Test = styled.div``;
 
 // Element: Container
 export const Container = styled.div`
-  /* background-color: ${({ isTransparent }) =>
-    isTransparent ? "transparent" : "rgba(255,255,255,1)"}; */
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  /* box-shadow: ${({ isTransparent }) =>
-    isTransparent ? null : "0 11px 8px -9px rgba(0,0,0,0.35)"}; */
-  /* height: ${({ isTransparent }) => (isTransparent ? "200px" : "80px")}; */
-  height: ${({ isTransparent }) => (isTransparent ? "200px" : "200px")};
-  /* opacity: ${({ scrollDirection }) =>
-    scrollDirection === "up" ? "1" : "0"}; */
-  /* opacity: ${({ isTransparent, scrollDirection, scrollPosition }) =>
-    isTransparent && scrollPosition <= 0
-      ? "1"
-      : isTransparent &&
-        scrollPosition > 60 &&
-        scrollPosition < 400 &&
-        scrollDirection === "down"
-      ? "0"
-      : scrollDirection === "up" && scrollPosition > 600
-      ? "1"
-      : "0"}; */
+  height: 200px;
   position: sticky;
   top: 0;
   transform: translateZ(0) scale(1, 1);
@@ -36,16 +18,17 @@ export const Container = styled.div`
   width: 100%;
   z-index: 20;
 
-  ${({ isTransparent, scrollDirection, scrollPosition }) =>
+  ${({ scrollDirection, scrollPosition }) =>
     scrollPosition === 0
       ? css`
           background-color: transparent;
         `
-      : scrollDirection === "up" && scrollPosition !== 0
+      : scrollDirection === "up" && scrollPosition !== 0 && scrollPosition > 80
       ? css`
           background-color: white;
+          box-shadow: 0 11px 8px -9px rgba(0, 0, 0, 0.35);
         `
-      : isTransparent && scrollDirection === "down" && scrollPosition > 80
+      : scrollDirection === "down" && scrollPosition > 80
       ? css`
           background-color: transparent;
           opacity: 0;
@@ -71,16 +54,12 @@ export const Nav = styled.nav`
 export const Logo = styled.span`
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  color: ${({ isTransparent }) => (isTransparent ? "#ffffff" : "#0a0a0b")};
   font-family: "Pacifico", sans-serif;
-  font-size: ${({ isTransparent }) => (isTransparent ? "6rem" : "6rem")};
-  /* font-size: ${({ isTransparent }) =>
-    isTransparent ? "6rem" : "3.4rem"}; */
+  font-size: 6rem;
   height: auto;
-  left: ${({ isTransparent }) => (isTransparent ? "0" : "0")};
+  left: 0;
   position: absolute;
-  top: ${({ isTransparent }) => (isTransparent ? "0" : "0")};
-  /* top: ${({ isTransparent }) => (isTransparent ? "0" : "-14px")}; */
+  top: 0;
   transform: translateZ(0) scale(1, 1);
   -webkit-transform: translateZ(0) scale(1, 1);
   transition: all 100ms linear;
@@ -90,13 +69,38 @@ export const Logo = styled.span`
   -khtml-user-select: none;
   -webkit-user-select: none;
 
+  ${({ scrollDirection, scrollPosition }) =>
+    scrollPosition === 0
+      ? css`
+          color: #ffffff;
+        `
+      : scrollDirection === "up" && scrollPosition !== 0 && scrollPosition > 80
+      ? css`
+          color: #0a0a0b;
+        `
+      : css`
+          color: #ffffff;
+        `};
+
   &:hover {
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    color: ${({ isTransparent }) => (isTransparent ? "#ffffff" : "#0a0a0b")};
     transform: translateZ(0) scale(1, 1);
     -webkit-transform: translateZ(0) scale(1, 1);
     transition: all 100ms linear;
+
+    ${({ scrollDirection, scrollPosition }) =>
+      scrollPosition === 0
+        ? css`
+            color: #0a0a0b;
+          `
+        : scrollDirection === "up" && scrollPosition !== 0
+        ? css`
+            color: #ff7570;
+          `
+        : css`
+            color: #0a0a0b;
+          `};
   }
 `;
 
@@ -112,7 +116,6 @@ export const NavItem = styled(NavLink).attrs({ activeClassName })`
   align-items: center;
   border: 1px solid rgba(29, 29, 29, 0);
   border-radius: 4px;
-  color: ${({ isTransparent }) => (isTransparent ? "#ebebeb" : "#2a2a2e")};
   cursor: pointer;
   display: flex;
   font-size: 1.2rem;
@@ -124,8 +127,34 @@ export const NavItem = styled(NavLink).attrs({ activeClassName })`
   position: relative;
   transition: all 100ms linear;
 
+  ${({ scrollDirection, scrollPosition }) =>
+    scrollPosition === 0
+      ? css`
+          color: #ebebeb;
+        `
+      : scrollDirection === "up" && scrollPosition !== 0 && scrollPosition > 80
+      ? css`
+          color: #2a2a2e;
+        `
+      : css`
+          color: #ebebeb;
+        `};
+
   &.${activeClassName} {
-    color: ${({ isTransparent }) => (isTransparent ? "#ffffff" : "#0a0a0b")};
+    ${({ scrollDirection, scrollPosition }) =>
+      scrollPosition === 0
+        ? css`
+            color: #ffffff;
+          `
+        : scrollDirection === "up" &&
+          scrollPosition !== 0 &&
+          scrollPosition > 80
+        ? css`
+            color: #0a0a0b;
+          `
+        : css`
+            color: #ffffff;
+          `};
 
     &:hover {
       &:after {
@@ -161,7 +190,21 @@ export const NavItem = styled(NavLink).attrs({ activeClassName })`
   }
 
   &:hover {
-    color: ${({ isTransparent }) => (isTransparent ? "#ffffff" : "#0a0a0b")};
+    ${({ scrollDirection, scrollPosition }) =>
+      scrollPosition === 0
+        ? css`
+            color: #ffffff;
+          `
+        : scrollDirection === "up" &&
+          scrollPosition !== 0 &&
+          scrollPosition > 80
+        ? css`
+            color: #0a0a0b;
+          `
+        : css`
+            color: #ffffff;
+          `};
+
     transition: all 100ms linear;
 
     &:after {
@@ -176,9 +219,6 @@ export const NavItem = styled(NavLink).attrs({ activeClassName })`
 export const NavItemCta = styled(NavLink).attrs({ activeClassName })`
   align-items: center;
   background-color: transparent;
-  border: 2px solid
-    ${({ isTransparent }) => (isTransparent ? "#ffffff" : "#2a2a2e")};
-  color: ${({ isTransparent }) => (isTransparent ? "#ffffff" : "#2a2a2e")};
   cursor: pointer;
   display: flex;
   font-size: 1.2rem;
@@ -190,15 +230,47 @@ export const NavItemCta = styled(NavLink).attrs({ activeClassName })`
   position: relative;
   transition: all 100ms linear;
 
+  ${({ scrollDirection, scrollPosition }) =>
+    scrollPosition === 0
+      ? css`
+          color: #ffffff;
+          border: 2px solid #ffffff;
+        `
+      : scrollDirection === "up" && scrollPosition !== 0 && scrollPosition > 80
+      ? css`
+          color: #2a2a2e;
+          border: 2px solid #2a2a2e;
+        `
+      : css`
+          color: #ffffff;
+          border: 2px solid #ffffff;
+        `};
+
   &:hover {
-    background-color: ${({ isTransparent }) =>
-      isTransparent ? "#ffffff" : "#0a0a0b"};
-    border: 2px solid
-      ${({ isTransparent }) => (isTransparent ? "#ffffff" : "#0a0a0b")};
     border-radius: 80px;
     box-shadow: 0 11px 8px -9px rgba(0, 0, 0, 0.35);
-    color: ${({ isTransparent }) => (isTransparent ? "#ff7570" : "#ffffff")};
     transition: background-color 100ms linear, border 100ms linear,
       color 100ms linear, box-shadow 100ms linear, border-radius 300ms linear;
+
+    ${({ scrollDirection, scrollPosition }) =>
+      scrollPosition === 0
+        ? css`
+            background-color: #ffffff;
+            border: 2px solid #ffffff;
+            color: #ff7570;
+          `
+        : scrollDirection === "up" &&
+          scrollPosition !== 0 &&
+          scrollPosition > 80
+        ? css`
+            background-color: #0a0a0b;
+            border: 2px solid #0a0a0b;
+            color: #ffffff;
+          `
+        : css`
+            background-color: #ffffff;
+            border: 2px solid #ffffff;
+            color: #ff7570;
+          `};
   }
 `;

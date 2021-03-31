@@ -44,29 +44,51 @@ export default function Navigation({
   return (
     <>
       <Container
-        isTransparent={isTransparent}
+        data-testid={"navigation"}
         scrollPosition={scrollPosition}
         scrollDirection={scrollDirection}
       >
         <Nav>
           <NavLink to="/" exact>
-            <Logo isTransparent={isTransparent}>riz</Logo>
+            <Logo
+              scrollPosition={scrollPosition}
+              scrollDirection={scrollDirection}
+            >
+              riz
+            </Logo>
           </NavLink>
 
           <NavContainer>
-            <NavItem isTransparent={isTransparent} to="/" exact>
+            <NavItem
+              scrollPosition={scrollPosition}
+              scrollDirection={scrollDirection}
+              to="/"
+              exact
+            >
               <span>Home</span>
             </NavItem>
 
-            <NavItem isTransparent={isTransparent} to="/projects">
+            <NavItem
+              scrollPosition={scrollPosition}
+              scrollDirection={scrollDirection}
+              to="/projects"
+            >
               <span>Projects</span>
             </NavItem>
 
-            <NavItem isTransparent={isTransparent} to="/blog">
+            <NavItem
+              scrollPosition={scrollPosition}
+              scrollDirection={scrollDirection}
+              to="/blog"
+            >
               <span>Blog</span>
             </NavItem>
 
-            <NavItem isTransparent={isTransparent} to="/about">
+            <NavItem
+              scrollPosition={scrollPosition}
+              scrollDirection={scrollDirection}
+              to="/about"
+            >
               <span>About</span>
             </NavItem>
 
@@ -82,7 +104,11 @@ export default function Navigation({
               onColor="#06d6A0"
             /> */}
 
-            <NavItemCta isTransparent={isTransparent} to="/contact">
+            <NavItemCta
+              scrollPosition={scrollPosition}
+              scrollDirection={scrollDirection}
+              to="/contact"
+            >
               <span>Contact</span>
             </NavItemCta>
           </NavContainer>

@@ -7,7 +7,7 @@ import { Button, Checkbox, Label, ScaleSwitch } from "./ThemeToggle.elements";
 // Component: ThemeToggle
 export default function ThemeToggle({ isOn, handleToggle, onColor }) {
   return (
-    <ScaleSwitch>
+    <ScaleSwitch data-testid={"themeToggle"}>
       <Checkbox
         checked={isOn}
         onChange={handleToggle}

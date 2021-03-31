@@ -8,7 +8,7 @@ import { Container } from "./Footer.elements";
 export default function Footer() {
   return (
     <>
-      <Container>
+      <Container data-testid={"footer"}>
         <h1>Footer</h1>
       </Container>
     </>
