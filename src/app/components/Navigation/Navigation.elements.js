@@ -23,7 +23,7 @@ export const Container = styled.div`
       ? css`
           background-color: transparent;
         `
-      : scrollDirection === "up" && scrollPosition !== 0 && scrollPosition > 80
+      : scrollDirection === "up" && scrollPosition !== 0 && scrollPosition > 40
       ? css`
           background-color: white;
           box-shadow: 0 11px 8px -9px rgba(0, 0, 0, 0.35);
@@ -74,7 +74,7 @@ export const Logo = styled.span`
       ? css`
           color: #ffffff;
         `
-      : scrollDirection === "up" && scrollPosition !== 0 && scrollPosition > 80
+      : scrollDirection === "up" && scrollPosition !== 0 && scrollPosition > 40
       ? css`
           color: #0a0a0b;
         `
@@ -92,14 +92,16 @@ export const Logo = styled.span`
     ${({ scrollDirection, scrollPosition }) =>
       scrollPosition === 0
         ? css`
-            color: #0a0a0b;
+            color: #ff7570;
           `
-        : scrollDirection === "up" && scrollPosition !== 0
+        : scrollDirection === "up" &&
+          scrollPosition !== 0 &&
+          scrollPosition > 40
         ? css`
             color: #ff7570;
           `
         : css`
-            color: #0a0a0b;
+            color: #ff7570;
           `};
   }
 `;
@@ -132,7 +134,7 @@ export const NavItem = styled(NavLink).attrs({ activeClassName })`
       ? css`
           color: #ebebeb;
         `
-      : scrollDirection === "up" && scrollPosition !== 0 && scrollPosition > 80
+      : scrollDirection === "up" && scrollPosition !== 0 && scrollPosition > 40
       ? css`
           color: #2a2a2e;
         `
@@ -148,7 +150,7 @@ export const NavItem = styled(NavLink).attrs({ activeClassName })`
           `
         : scrollDirection === "up" &&
           scrollPosition !== 0 &&
-          scrollPosition > 80
+          scrollPosition > 40
         ? css`
             color: #0a0a0b;
           `
@@ -190,6 +192,8 @@ export const NavItem = styled(NavLink).attrs({ activeClassName })`
   }
 
   &:hover {
+    transition: all 100ms linear;
+
     ${({ scrollDirection, scrollPosition }) =>
       scrollPosition === 0
         ? css`
@@ -197,15 +201,13 @@ export const NavItem = styled(NavLink).attrs({ activeClassName })`
           `
         : scrollDirection === "up" &&
           scrollPosition !== 0 &&
-          scrollPosition > 80
+          scrollPosition > 40
         ? css`
             color: #0a0a0b;
           `
         : css`
             color: #ffffff;
           `};
-
-    transition: all 100ms linear;
 
     &:after {
       left: 0;
@@ -236,7 +238,7 @@ export const NavItemCta = styled(NavLink).attrs({ activeClassName })`
           color: #ffffff;
           border: 2px solid #ffffff;
         `
-      : scrollDirection === "up" && scrollPosition !== 0 && scrollPosition > 80
+      : scrollDirection === "up" && scrollPosition !== 0 && scrollPosition > 40
       ? css`
           color: #2a2a2e;
           border: 2px solid #2a2a2e;
@@ -261,7 +263,7 @@ export const NavItemCta = styled(NavLink).attrs({ activeClassName })`
           `
         : scrollDirection === "up" &&
           scrollPosition !== 0 &&
-          scrollPosition > 80
+          scrollPosition > 40
         ? css`
             background-color: #0a0a0b;
             border: 2px solid #0a0a0b;
